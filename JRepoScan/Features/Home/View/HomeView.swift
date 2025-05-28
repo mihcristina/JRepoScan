@@ -8,10 +8,20 @@
 import UIKit
 
 class HomeView: UIView {
+    private lazy var customNav: CustomNavigationBar = {
+        let nav = CustomNavigationBar(title: "JRepoScan", type: .menu(action: {
+            print("Vem um menu bem legal aqui")
+        })) {
+            print("notificaçãozinha hein")
+        }
+        nav.translatesAutoresizingMaskIntoConstraints = false
+        return nav
+    }()
 
-    private let tableView: UITableView = {
+    private lazy var tableView: UITableView = {
         let table = UITableView()
         table.translatesAutoresizingMaskIntoConstraints = false
+        table.register(RepoViewTableViewCell.self, forCellReuseIdentifier: RepoViewTableViewCell.identifier)
         return table
     }()
 
@@ -24,19 +34,36 @@ class HomeView: UIView {
         fatalError("init(coder:) has not been implemented")
     }
 
+    func tableViewDelegation(delegate: UITableViewDelegate, datasource: UITableViewDataSource) {
+        tableView.delegate = delegate
+        tableView.dataSource = datasource
+    }
+
 }
 
 extension HomeView: ViewCodable {
     func buildHierarchy() {
-        
+        addSubview(customNav)
+        addSubview(tableView)
     }
 
     func setupConstraints() {
-        
+        NSLayoutConstraint.activate([
+            customNav.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor),
+            customNav.leadingAnchor.constraint(equalTo: leadingAnchor),
+            customNav.trailingAnchor.constraint(equalTo: trailingAnchor),
+            customNav.heightAnchor.constraint(equalToConstant: 56),
+            
+            tableView.topAnchor.constraint(equalTo: customNav.bottomAnchor),
+            tableView.bottomAnchor.constraint(equalTo: bottomAnchor),
+            tableView.leadingAnchor.constraint(equalTo: leadingAnchor),
+            tableView.trailingAnchor.constraint(equalTo: trailingAnchor)
+        ])
     }
 
     func configView() {
-        backgroundColor = UIColor(hex: "#1E1E2F")
+        backgroundColor = AppColor.accent.color
+        tableView.backgroundColor = AppColor.background.color
     }
 
 }
