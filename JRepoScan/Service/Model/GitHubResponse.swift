@@ -17,6 +17,8 @@ struct Repository: Codable {
     let htmlUrl: String
     let stargazersCount: Int
     let owner: Owner
+    let description: String
+    let forksCount: Int 
     let forksUrl: String
 
     enum CodingKeys: String, CodingKey {
@@ -25,6 +27,8 @@ struct Repository: Codable {
         case htmlUrl = "html_url"
         case stargazersCount = "stargazers_count"
         case owner
+        case description
+        case forksCount = "forks_count"
         case forksUrl = "forks_url"
     }
 }

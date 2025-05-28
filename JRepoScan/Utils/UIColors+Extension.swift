@@ -43,10 +43,12 @@ extension UIColor {
 }
 
 enum AppColor: String {
-    case primary = "#FF5733"
-    case secondary = "#3498DB"
     case background = "#1E1E2F"
     case accent = "#8E44AD"
+    case star = "#F1C40F"
+    case fork = "#2ECC71"
+    case primary = "#E0E0E0"
+    case secondary = "#A0A0B0"
 
     var color: UIColor? {
         return UIColor(hex: self.rawValue)

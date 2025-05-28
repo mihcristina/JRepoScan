@@ -20,14 +20,81 @@ class RepoViewTableViewCell: UITableViewCell {
         return image
     }()
 
-    private var titleLabel: UILabel = {
+    private var nameLabel: UILabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
-        label.font = .systemFont(ofSize: 10, weight: .black)
-        label.textColor = .white
+        label.font = CustomFont.robotoMedium.withSize(14)
+        label.textAlignment = .center
+        label.textColor = AppColor.primary.color
         return label
     }()
 
+    private var titleLabel: UILabel = {
+        let label = UILabel()
+        label.translatesAutoresizingMaskIntoConstraints = false
+        label.font = CustomFont.robotoMedium.withSize(14)
+        label.textColor = AppColor.primary.color
+        return label
+    }()
+
+    private var descriptionLabel: UILabel = {
+        let label = UILabel()
+        label.translatesAutoresizingMaskIntoConstraints = false
+        label.font = CustomFont.robotoRegular.withSize(12)
+        label.numberOfLines = 3
+        label.textColor = AppColor.secondary.color
+        return label
+    }()
+
+    private var forkStackView: UIStackView = {
+        let stack = UIStackView()
+        stack.translatesAutoresizingMaskIntoConstraints = false
+        stack.axis = .horizontal
+        stack.spacing = 2
+        stack.distribution = .fill
+        return stack
+    }()
+
+    private var forkImage: UIImageView = {
+        let image = UIImageView()
+        image.translatesAutoresizingMaskIntoConstraints = false
+        image.contentMode = .scaleAspectFill
+        image.image = UIImage(named: "fork")
+        return image
+    }()
+
+    private var forkLabel: UILabel = {
+        let label = UILabel()
+        label.translatesAutoresizingMaskIntoConstraints = false
+        label.font = CustomFont.robotoRegular.withSize(12)
+        label.textColor = AppColor.fork.color
+        return label
+    }()
+
+    private var starStackView: UIStackView = {
+        let stack = UIStackView()
+        stack.translatesAutoresizingMaskIntoConstraints = false
+        stack.axis = .horizontal
+        stack.spacing = 2
+        stack.distribution = .fill
+        return stack
+    }()
+
+    private var starImage: UIImageView = {
+        let image = UIImageView()
+        image.translatesAutoresizingMaskIntoConstraints = false
+        image.contentMode = .scaleAspectFill
+        image.image = UIImage(named: "Vector")
+        return image
+    }()
+
+    private var starLabel: UILabel = {
+        let label = UILabel()
+        label.translatesAutoresizingMaskIntoConstraints = false
+        label.font = CustomFont.robotoRegular.withSize(12)
+        label.textColor = AppColor.star.color
+        return label
+    }()
 
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
@@ -38,28 +105,60 @@ class RepoViewTableViewCell: UITableViewCell {
         fatalError("init(coder:) has not been implemented")
     }
 
-    public func configCell(image: String, titleLabel: String) {
+    public func configCell(image: String, titleLabel: String, description: String, nameOwner: String, forkLabel: String, starsNumber: String) {
         self.imageProfile.loadImage(from: image)
         self.titleLabel.text = titleLabel
+        self.descriptionLabel.text = description
+        self.nameLabel.text = nameOwner
+        self.forkLabel.text = forkLabel
+        self.starLabel.text = starsNumber
     }
 }
 
 extension RepoViewTableViewCell: ViewCodable {
     func buildHierarchy() {
         addSubview(imageProfile)
+        addSubview(nameLabel)
         addSubview(titleLabel)
+        addSubview(descriptionLabel)
+        addSubview(forkStackView)
+        forkStackView.addArrangedSubview(forkImage)
+        forkStackView.addArrangedSubview(forkLabel)
+        addSubview(starStackView)
+        starStackView.addArrangedSubview(starImage)
+        starStackView.addArrangedSubview(starLabel)
     }
     
     func setupConstraints() {
         NSLayoutConstraint.activate([
-            imageProfile.centerYAnchor.constraint(equalTo: centerYAnchor),
-            imageProfile.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 28),
+            imageProfile.topAnchor.constraint(equalTo: topAnchor, constant: 18),
+            imageProfile.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 18),
             imageProfile.heightAnchor.constraint(equalToConstant: 88),
             imageProfile.widthAnchor.constraint(equalToConstant: 88),
+
+            nameLabel.topAnchor.constraint(equalTo: imageProfile.bottomAnchor, constant: 4),
+            nameLabel.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 18),
+            nameLabel.trailingAnchor.constraint(equalTo: descriptionLabel.leadingAnchor),
+            nameLabel.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -4),
 
             titleLabel.leadingAnchor.constraint(equalTo: imageProfile.trailingAnchor, constant: 18),
             titleLabel.trailingAnchor.constraint(equalTo: trailingAnchor),
             titleLabel.topAnchor.constraint(equalTo: imageProfile.topAnchor),
+
+            descriptionLabel.leadingAnchor.constraint(equalTo: imageProfile.trailingAnchor, constant: 18),
+            descriptionLabel.topAnchor.constraint(equalTo: titleLabel.bottomAnchor, constant: 4),
+            descriptionLabel.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -14),
+
+            forkStackView.topAnchor.constraint(equalTo: descriptionLabel.bottomAnchor, constant: 10),
+            forkStackView.leadingAnchor.constraint(equalTo: nameLabel.trailingAnchor, constant: 10),
+            forkStackView.bottomAnchor.constraint(equalTo: imageProfile.bottomAnchor),
+
+            starStackView.topAnchor.constraint(equalTo: forkStackView.topAnchor),
+            starStackView.leadingAnchor.constraint(equalTo: forkStackView.trailingAnchor, constant: 10),
+            starStackView.bottomAnchor.constraint(equalTo: forkStackView.bottomAnchor),
+
+            starImage.heightAnchor.constraint(equalToConstant: 10),
+            forkImage.heightAnchor.constraint(equalToConstant: 10),
         ])
     }
     

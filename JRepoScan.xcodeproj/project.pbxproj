@@ -25,6 +25,9 @@
 		835646372DE6A11500A338E0 /* GitHubAPIService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 835646362DE6A11500A338E0 /* GitHubAPIService.swift */; };
 		835646392DE6A1E300A338E0 /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 835646382DE6A1E300A338E0 /* HomeViewModel.swift */; };
 		8356463B2DE6A61000A338E0 /* UIImage+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8356463A2DE6A61000A338E0 /* UIImage+Extension.swift */; };
+		8356463E2DE6A89800A338E0 /* RobotoMono-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 8356463D2DE6A89700A338E0 /* RobotoMono-Regular.ttf */; };
+		835646402DE6A8B400A338E0 /* RobotoMono-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 8356463F2DE6A8B400A338E0 /* RobotoMono-Medium.ttf */; };
+		835646422DE6A90F00A338E0 /* Fonts+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 835646412DE6A90F00A338E0 /* Fonts+Extension.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -67,6 +70,9 @@
 		835646362DE6A11500A338E0 /* GitHubAPIService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GitHubAPIService.swift; sourceTree = "<group>"; };
 		835646382DE6A1E300A338E0 /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
 		8356463A2DE6A61000A338E0 /* UIImage+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+Extension.swift"; sourceTree = "<group>"; };
+		8356463D2DE6A89700A338E0 /* RobotoMono-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "RobotoMono-Regular.ttf"; sourceTree = "<group>"; };
+		8356463F2DE6A8B400A338E0 /* RobotoMono-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "RobotoMono-Medium.ttf"; sourceTree = "<group>"; };
+		835646412DE6A90F00A338E0 /* Fonts+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Fonts+Extension.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -184,10 +190,12 @@
 		835646242DE6764700A338E0 /* Utils */ = {
 			isa = PBXGroup;
 			children = (
+				8356463C2DE6A82C00A338E0 /* Fonts */,
 				835646252DE6787200A338E0 /* ViewCodable.swift */,
 				835646272DE67B4A00A338E0 /* UIColors+Extension.swift */,
 				8356462E2DE68F8C00A338E0 /* CustomNavigation.swift */,
 				8356463A2DE6A61000A338E0 /* UIImage+Extension.swift */,
+				835646412DE6A90F00A338E0 /* Fonts+Extension.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -216,6 +224,15 @@
 				835646342DE6A0FC00A338E0 /* PullRequest.swift */,
 			);
 			path = Model;
+			sourceTree = "<group>";
+		};
+		8356463C2DE6A82C00A338E0 /* Fonts */ = {
+			isa = PBXGroup;
+			children = (
+				8356463F2DE6A8B400A338E0 /* RobotoMono-Medium.ttf */,
+				8356463D2DE6A89700A338E0 /* RobotoMono-Regular.ttf */,
+			);
+			path = Fonts;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -323,7 +340,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				835645F72DE66DA000A338E0 /* Assets.xcassets in Resources */,
+				835646402DE6A8B400A338E0 /* RobotoMono-Medium.ttf in Resources */,
 				835645FA2DE66DA000A338E0 /* Base in Resources */,
+				8356463E2DE6A89800A338E0 /* RobotoMono-Regular.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -354,6 +373,7 @@
 				835645F22DE66D9E00A338E0 /* HomeViewController.swift in Sources */,
 				835646232DE6743200A338E0 /* HomeView.swift in Sources */,
 				835646372DE6A11500A338E0 /* GitHubAPIService.swift in Sources */,
+				835646422DE6A90F00A338E0 /* Fonts+Extension.swift in Sources */,
 				835646282DE67B4A00A338E0 /* UIColors+Extension.swift in Sources */,
 				8356462F2DE68F8C00A338E0 /* CustomNavigation.swift in Sources */,
 				835646392DE6A1E300A338E0 /* HomeViewModel.swift in Sources */,

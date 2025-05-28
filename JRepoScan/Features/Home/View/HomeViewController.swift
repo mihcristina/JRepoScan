@@ -42,11 +42,11 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let repo = viewModel.repositories[indexPath.row]
         let cell = tableView.dequeueReusableCell(withIdentifier: RepoViewTableViewCell.identifier, for: indexPath) as? RepoViewTableViewCell
-        cell?.configCell(image: repo.owner.avatarUrl, titleLabel: repo.name)
+        cell?.configCell(image: repo.owner.avatarUrl, titleLabel: repo.name, description: repo.description, nameOwner: repo.owner.login, forkLabel: String(repo.forksCount), starsNumber: String(repo.stargazersCount))
         return cell ?? UITableViewCell()
     }
 
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 100
+        return 130
     }
 }
