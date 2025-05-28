@@ -20,6 +20,11 @@
 		835646282DE67B4A00A338E0 /* UIColors+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 835646272DE67B4A00A338E0 /* UIColors+Extension.swift */; };
 		8356462D2DE67FBC00A338E0 /* RepoViewTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8356462C2DE67FBC00A338E0 /* RepoViewTableViewCell.swift */; };
 		8356462F2DE68F8C00A338E0 /* CustomNavigation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8356462E2DE68F8C00A338E0 /* CustomNavigation.swift */; };
+		835646322DE6A06500A338E0 /* GitHubResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 835646312DE6A06500A338E0 /* GitHubResponse.swift */; };
+		835646352DE6A0FC00A338E0 /* PullRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 835646342DE6A0FC00A338E0 /* PullRequest.swift */; };
+		835646372DE6A11500A338E0 /* GitHubAPIService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 835646362DE6A11500A338E0 /* GitHubAPIService.swift */; };
+		835646392DE6A1E300A338E0 /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 835646382DE6A1E300A338E0 /* HomeViewModel.swift */; };
+		8356463B2DE6A61000A338E0 /* UIImage+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8356463A2DE6A61000A338E0 /* UIImage+Extension.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -57,6 +62,11 @@
 		835646272DE67B4A00A338E0 /* UIColors+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColors+Extension.swift"; sourceTree = "<group>"; };
 		8356462C2DE67FBC00A338E0 /* RepoViewTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepoViewTableViewCell.swift; sourceTree = "<group>"; };
 		8356462E2DE68F8C00A338E0 /* CustomNavigation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomNavigation.swift; sourceTree = "<group>"; };
+		835646312DE6A06500A338E0 /* GitHubResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GitHubResponse.swift; sourceTree = "<group>"; };
+		835646342DE6A0FC00A338E0 /* PullRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PullRequest.swift; sourceTree = "<group>"; };
+		835646362DE6A11500A338E0 /* GitHubAPIService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GitHubAPIService.swift; sourceTree = "<group>"; };
+		835646382DE6A1E300A338E0 /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
+		8356463A2DE6A61000A338E0 /* UIImage+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+Extension.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -107,6 +117,7 @@
 		835645EC2DE66D9E00A338E0 /* JRepoScan */ = {
 			isa = PBXGroup;
 			children = (
+				835646302DE6A00D00A338E0 /* Service */,
 				835646242DE6764700A338E0 /* Utils */,
 				8356461D2DE6739C00A338E0 /* Features */,
 				835645ED2DE66D9E00A338E0 /* AppDelegate.swift */,
@@ -165,6 +176,7 @@
 		835646202DE673C400A338E0 /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
+				835646382DE6A1E300A338E0 /* HomeViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -175,6 +187,7 @@
 				835646252DE6787200A338E0 /* ViewCodable.swift */,
 				835646272DE67B4A00A338E0 /* UIColors+Extension.swift */,
 				8356462E2DE68F8C00A338E0 /* CustomNavigation.swift */,
+				8356463A2DE6A61000A338E0 /* UIImage+Extension.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -185,6 +198,24 @@
 				8356462C2DE67FBC00A338E0 /* RepoViewTableViewCell.swift */,
 			);
 			path = Cell;
+			sourceTree = "<group>";
+		};
+		835646302DE6A00D00A338E0 /* Service */ = {
+			isa = PBXGroup;
+			children = (
+				835646332DE6A07200A338E0 /* Model */,
+				835646362DE6A11500A338E0 /* GitHubAPIService.swift */,
+			);
+			path = Service;
+			sourceTree = "<group>";
+		};
+		835646332DE6A07200A338E0 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				835646312DE6A06500A338E0 /* GitHubResponse.swift */,
+				835646342DE6A0FC00A338E0 /* PullRequest.swift */,
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -317,13 +348,18 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8356463B2DE6A61000A338E0 /* UIImage+Extension.swift in Sources */,
+				835646322DE6A06500A338E0 /* GitHubResponse.swift in Sources */,
 				835646262DE6787200A338E0 /* ViewCodable.swift in Sources */,
 				835645F22DE66D9E00A338E0 /* HomeViewController.swift in Sources */,
 				835646232DE6743200A338E0 /* HomeView.swift in Sources */,
+				835646372DE6A11500A338E0 /* GitHubAPIService.swift in Sources */,
 				835646282DE67B4A00A338E0 /* UIColors+Extension.swift in Sources */,
 				8356462F2DE68F8C00A338E0 /* CustomNavigation.swift in Sources */,
+				835646392DE6A1E300A338E0 /* HomeViewModel.swift in Sources */,
 				835645EE2DE66D9E00A338E0 /* AppDelegate.swift in Sources */,
 				8356462D2DE67FBC00A338E0 /* RepoViewTableViewCell.swift in Sources */,
+				835646352DE6A0FC00A338E0 /* PullRequest.swift in Sources */,
 				835645F02DE66D9E00A338E0 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -18,7 +18,7 @@ class HomeView: UIView {
         return nav
     }()
 
-    private lazy var tableView: UITableView = {
+    internal lazy var tableView: UITableView = {
         let table = UITableView()
         table.translatesAutoresizingMaskIntoConstraints = false
         table.register(RepoViewTableViewCell.self, forCellReuseIdentifier: RepoViewTableViewCell.identifier)

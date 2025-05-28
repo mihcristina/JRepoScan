@@ -17,9 +17,17 @@ class RepoViewTableViewCell: UITableViewCell {
         image.contentMode = .scaleToFill
         image.clipsToBounds = true
         image.layer.cornerRadius = 14
-        image.image = UIImage(named: "git")
         return image
     }()
+
+    private var titleLabel: UILabel = {
+        let label = UILabel()
+        label.translatesAutoresizingMaskIntoConstraints = false
+        label.font = .systemFont(ofSize: 10, weight: .black)
+        label.textColor = .white
+        return label
+    }()
+
 
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
@@ -30,11 +38,16 @@ class RepoViewTableViewCell: UITableViewCell {
         fatalError("init(coder:) has not been implemented")
     }
 
+    public func configCell(image: String, titleLabel: String) {
+        self.imageProfile.loadImage(from: image)
+        self.titleLabel.text = titleLabel
+    }
 }
 
 extension RepoViewTableViewCell: ViewCodable {
     func buildHierarchy() {
         addSubview(imageProfile)
+        addSubview(titleLabel)
     }
     
     func setupConstraints() {
@@ -43,6 +56,10 @@ extension RepoViewTableViewCell: ViewCodable {
             imageProfile.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 28),
             imageProfile.heightAnchor.constraint(equalToConstant: 88),
             imageProfile.widthAnchor.constraint(equalToConstant: 88),
+
+            titleLabel.leadingAnchor.constraint(equalTo: imageProfile.trailingAnchor, constant: 18),
+            titleLabel.trailingAnchor.constraint(equalTo: trailingAnchor),
+            titleLabel.topAnchor.constraint(equalTo: imageProfile.topAnchor),
         ])
     }
     
