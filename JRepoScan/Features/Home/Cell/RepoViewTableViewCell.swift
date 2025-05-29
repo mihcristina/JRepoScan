@@ -113,6 +113,8 @@ class RepoViewTableViewCell: UITableViewCell {
         self.nameLabel.text = nameOwner
         self.forkLabel.text = forkLabel
         self.starLabel.text = starsNumber
+
+        setupAccessibility(textDescription: description)
     }
 }
 
@@ -162,7 +164,28 @@ extension RepoViewTableViewCell: ViewCodable {
             forkImage.heightAnchor.constraint(equalToConstant: 10),
         ])
     }
-    
+
+    private func setupAccessibility(textDescription: String) {
+        isAccessibilityElement = true
+        accessibilityTraits = [.button]
+
+        let titulo = "Título: \(titleLabel.text ?? "")"
+        let responsavel = "Responsável: \(nameLabel.text ?? "")"
+        let descricao: String
+
+        if self.isPortuguese(text: textDescription) {
+            descricao = "Descrição: \(descriptionLabel.text ?? "")"
+        } else {
+            descricao = "Descrição em outro idioma"
+        }
+
+        let forks = "Número de fórquis: \(forkLabel.text ?? "0")"
+        let estrelas = "Número de estrelas: \(starLabel.text ?? "0")"
+
+        accessibilityLabel = [titulo, responsavel, descricao, forks, estrelas].joined(separator: ". ")
+        accessibilityHint = "Toque duas vezes para abrir os Pull Recuéstis do repositório."
+    }
+
     func configView() {
         backgroundColor = .clear
     }

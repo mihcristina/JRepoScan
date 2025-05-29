@@ -7,8 +7,6 @@
 
 import UIKit
 
-import UIKit
-
 class PRViewTableViewCell: UITableViewCell {
 
     static var identifier: String = "PRViewTableViewCell"
@@ -73,11 +71,15 @@ class PRViewTableViewCell: UITableViewCell {
         fatalError("init(coder:) has not been implemented")
     }
 
-    public func configCell(titleLabel: String, descriptionLabel: String, profileName: String, datelabel: String) {
+    public func configCell(titleLabel: String, descriptionLabel: String, profileName: String, date: Date) {
         self.titleLabel.text = titleLabel
         self.descriptionLabel.text = descriptionLabel
         self.nameLabel.text = profileName
-        self.dateLabel.text = datelabel
+        let formatter = DateFormatter()
+        formatter.dateFormat = "dd 'de' MMMM 'de' yyyy"
+        formatter.locale = Locale(identifier: "pt_BR")
+        self.dateLabel.text = formatter.string(from: date)
+
 
         setupAccessibility(textDescription: descriptionLabel)
     }

@@ -49,12 +49,7 @@ extension PullRequestsViewController: UITableViewDelegate, UITableViewDataSource
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let pr = viewModel.pullRequests[indexPath.row]
         let cell = tableView.dequeueReusableCell(withIdentifier: PRViewTableViewCell.identifier, for: indexPath) as? PRViewTableViewCell
-        let formatter = DateFormatter()
-        formatter.dateStyle = .medium
-        formatter.timeStyle = .none
-        let dateString = formatter.string(from: pr.createdAt)
-
-        cell?.configCell(titleLabel: pr.title, descriptionLabel: pr.body ?? "Sem descrição", profileName: pr.user.login, datelabel: dateString)
+        cell?.configCell(titleLabel: pr.title, descriptionLabel: pr.body ?? "Sem descrição", profileName: pr.user.login, date: pr.createdAt)
         return cell ?? UITableViewCell()
     }
     

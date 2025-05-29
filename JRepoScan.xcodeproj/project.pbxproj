@@ -198,7 +198,6 @@
 		835646242DE6764700A338E0 /* Utils */ = {
 			isa = PBXGroup;
 			children = (
-				835646522DE7DBBA00A338E0 /* Custom */,
 				835646512DE7DB9F00A338E0 /* Extensions */,
 				8356464C2DE6BC7D00A338E0 /* Components */,
 				8356463C2DE6A82C00A338E0 /* Fonts */,
@@ -279,6 +278,7 @@
 		8356464C2DE6BC7D00A338E0 /* Components */ = {
 			isa = PBXGroup;
 			children = (
+				8356462E2DE68F8C00A338E0 /* CustomNavigation.swift */,
 				835646222DE6743200A338E0 /* CustomView.swift */,
 			);
 			path = Components;
@@ -293,14 +293,6 @@
 				835646582DE7E3F800A338E0 /* UITableViewCell+Extension.swift */,
 			);
 			path = Extensions;
-			sourceTree = "<group>";
-		};
-		835646522DE7DBBA00A338E0 /* Custom */ = {
-			isa = PBXGroup;
-			children = (
-				8356462E2DE68F8C00A338E0 /* CustomNavigation.swift */,
-			);
-			path = Custom;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */

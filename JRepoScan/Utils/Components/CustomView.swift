@@ -78,6 +78,10 @@ extension CustomView: ViewCodable {
     func configView() {
         backgroundColor = AppColor.accent.color
         tableView.backgroundColor = AppColor.background.color
+
+        isAccessibilityElement = false
+        shouldGroupAccessibilityChildren = true
+        accessibilityElements = [customNav, tableView]
     }
 
 }
