@@ -53,7 +53,7 @@ Abrir o xcode e em seu menu superior acionar o inspetor de acessibilidade, no xc
         </sub>
         </a>
         <div>
-          <b>Desenvolvedora iOS. Pós graduanda em Engenharia de Software e Desenvolvimento de aplicativos móvies.</b>
+          <b>Desenvolvedora iOS. Pós graduanda em Engenharia de Software e Desenvolvimento de aplicativos móveis.</b>
         </div>
     </td>
   </tr>
