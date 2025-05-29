@@ -15,7 +15,7 @@
 		835646052DE66DA000A338E0 /* JRepoScanTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 835646042DE66DA000A338E0 /* JRepoScanTests.swift */; };
 		8356460F2DE66DA000A338E0 /* JRepoScanUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8356460E2DE66DA000A338E0 /* JRepoScanUITests.swift */; };
 		835646112DE66DA000A338E0 /* JRepoScanUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 835646102DE66DA000A338E0 /* JRepoScanUITestsLaunchTests.swift */; };
-		835646232DE6743200A338E0 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 835646222DE6743200A338E0 /* HomeView.swift */; };
+		835646232DE6743200A338E0 /* CustomView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 835646222DE6743200A338E0 /* CustomView.swift */; };
 		835646262DE6787200A338E0 /* ViewCodable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 835646252DE6787200A338E0 /* ViewCodable.swift */; };
 		835646282DE67B4A00A338E0 /* UIColors+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 835646272DE67B4A00A338E0 /* UIColors+Extension.swift */; };
 		8356462D2DE67FBC00A338E0 /* RepoViewTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8356462C2DE67FBC00A338E0 /* RepoViewTableViewCell.swift */; };
@@ -28,6 +28,9 @@
 		8356463E2DE6A89800A338E0 /* RobotoMono-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 8356463D2DE6A89700A338E0 /* RobotoMono-Regular.ttf */; };
 		835646402DE6A8B400A338E0 /* RobotoMono-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 8356463F2DE6A8B400A338E0 /* RobotoMono-Medium.ttf */; };
 		835646422DE6A90F00A338E0 /* Fonts+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 835646412DE6A90F00A338E0 /* Fonts+Extension.swift */; };
+		835646452DE6BA6400A338E0 /* PullRequestsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 835646442DE6BA6400A338E0 /* PullRequestsViewController.swift */; };
+		8356464E2DE6BEBF00A338E0 /* PRViewTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8356464D2DE6BEBF00A338E0 /* PRViewTableViewCell.swift */; };
+		835646502DE6C3CA00A338E0 /* PullRequestsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8356464F2DE6C3CA00A338E0 /* PullRequestsViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -60,7 +63,7 @@
 		8356460A2DE66DA000A338E0 /* JRepoScanUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = JRepoScanUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		8356460E2DE66DA000A338E0 /* JRepoScanUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JRepoScanUITests.swift; sourceTree = "<group>"; };
 		835646102DE66DA000A338E0 /* JRepoScanUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JRepoScanUITestsLaunchTests.swift; sourceTree = "<group>"; };
-		835646222DE6743200A338E0 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
+		835646222DE6743200A338E0 /* CustomView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomView.swift; sourceTree = "<group>"; };
 		835646252DE6787200A338E0 /* ViewCodable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewCodable.swift; sourceTree = "<group>"; };
 		835646272DE67B4A00A338E0 /* UIColors+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColors+Extension.swift"; sourceTree = "<group>"; };
 		8356462C2DE67FBC00A338E0 /* RepoViewTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepoViewTableViewCell.swift; sourceTree = "<group>"; };
@@ -73,6 +76,9 @@
 		8356463D2DE6A89700A338E0 /* RobotoMono-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "RobotoMono-Regular.ttf"; sourceTree = "<group>"; };
 		8356463F2DE6A8B400A338E0 /* RobotoMono-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "RobotoMono-Medium.ttf"; sourceTree = "<group>"; };
 		835646412DE6A90F00A338E0 /* Fonts+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Fonts+Extension.swift"; sourceTree = "<group>"; };
+		835646442DE6BA6400A338E0 /* PullRequestsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PullRequestsViewController.swift; sourceTree = "<group>"; };
+		8356464D2DE6BEBF00A338E0 /* PRViewTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PRViewTableViewCell.swift; sourceTree = "<group>"; };
+		8356464F2DE6C3CA00A338E0 /* PullRequestsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PullRequestsViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -155,6 +161,7 @@
 		8356461D2DE6739C00A338E0 /* Features */ = {
 			isa = PBXGroup;
 			children = (
+				835646432DE6BA4500A338E0 /* PullRequests */,
 				8356461E2DE673A300A338E0 /* Home */,
 			);
 			path = Features;
@@ -174,7 +181,6 @@
 			isa = PBXGroup;
 			children = (
 				835645F12DE66D9E00A338E0 /* HomeViewController.swift */,
-				835646222DE6743200A338E0 /* HomeView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -190,6 +196,7 @@
 		835646242DE6764700A338E0 /* Utils */ = {
 			isa = PBXGroup;
 			children = (
+				8356464C2DE6BC7D00A338E0 /* Components */,
 				8356463C2DE6A82C00A338E0 /* Fonts */,
 				835646252DE6787200A338E0 /* ViewCodable.swift */,
 				835646272DE67B4A00A338E0 /* UIColors+Extension.swift */,
@@ -233,6 +240,48 @@
 				8356463D2DE6A89700A338E0 /* RobotoMono-Regular.ttf */,
 			);
 			path = Fonts;
+			sourceTree = "<group>";
+		};
+		835646432DE6BA4500A338E0 /* PullRequests */ = {
+			isa = PBXGroup;
+			children = (
+				835646482DE6BADC00A338E0 /* Cell */,
+				835646472DE6BAD500A338E0 /* ViewModel */,
+				835646462DE6BAC400A338E0 /* View */,
+			);
+			path = PullRequests;
+			sourceTree = "<group>";
+		};
+		835646462DE6BAC400A338E0 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				835646442DE6BA6400A338E0 /* PullRequestsViewController.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		835646472DE6BAD500A338E0 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				8356464F2DE6C3CA00A338E0 /* PullRequestsViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		835646482DE6BADC00A338E0 /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				8356464D2DE6BEBF00A338E0 /* PRViewTableViewCell.swift */,
+			);
+			path = Cell;
+			sourceTree = "<group>";
+		};
+		8356464C2DE6BC7D00A338E0 /* Components */ = {
+			isa = PBXGroup;
+			children = (
+				835646222DE6743200A338E0 /* CustomView.swift */,
+			);
+			path = Components;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -370,13 +419,16 @@
 				8356463B2DE6A61000A338E0 /* UIImage+Extension.swift in Sources */,
 				835646322DE6A06500A338E0 /* GitHubResponse.swift in Sources */,
 				835646262DE6787200A338E0 /* ViewCodable.swift in Sources */,
+				835646452DE6BA6400A338E0 /* PullRequestsViewController.swift in Sources */,
+				8356464E2DE6BEBF00A338E0 /* PRViewTableViewCell.swift in Sources */,
 				835645F22DE66D9E00A338E0 /* HomeViewController.swift in Sources */,
-				835646232DE6743200A338E0 /* HomeView.swift in Sources */,
+				835646232DE6743200A338E0 /* CustomView.swift in Sources */,
 				835646372DE6A11500A338E0 /* GitHubAPIService.swift in Sources */,
 				835646422DE6A90F00A338E0 /* Fonts+Extension.swift in Sources */,
 				835646282DE67B4A00A338E0 /* UIColors+Extension.swift in Sources */,
 				8356462F2DE68F8C00A338E0 /* CustomNavigation.swift in Sources */,
 				835646392DE6A1E300A338E0 /* HomeViewModel.swift in Sources */,
+				835646502DE6C3CA00A338E0 /* PullRequestsViewModel.swift in Sources */,
 				835645EE2DE66D9E00A338E0 /* AppDelegate.swift in Sources */,
 				8356462D2DE67FBC00A338E0 /* RepoViewTableViewCell.swift in Sources */,
 				835646352DE6A0FC00A338E0 /* PullRequest.swift in Sources */,

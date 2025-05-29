@@ -8,11 +8,11 @@
 import UIKit
 
 class HomeViewController: UIViewController {
-    var homeView: HomeView?
+    var homeView: CustomView?
     let viewModel = HomeViewModel()
 
     override func loadView() {
-        homeView = HomeView()
+        homeView = CustomView(navName: "JRepoScan", isHome: true)
         view = homeView
     }
 
@@ -49,7 +49,13 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 130
     }
-    
+
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let repo = viewModel.repositories[indexPath.row]
+        let vc = PullRequestsViewController(repository: repo)
+        navigationController?.pushViewController(vc, animated: true)
+    }
+
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
         let offsetY = scrollView.contentOffset.y
         let contentHeight = scrollView.contentSize.height

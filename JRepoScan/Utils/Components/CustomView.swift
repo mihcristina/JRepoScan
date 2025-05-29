@@ -1,5 +1,5 @@
 //
-//  HomeView.swift
+//  CustomView.swift
 //  JRepoScan
 //
 //  Created by Michelli Cristina de Paulo Lima on 27/05/25.
@@ -7,13 +7,24 @@
 
 import UIKit
 
-class HomeView: UIView {
+protocol CustomViewDelegate: AnyObject {
+    func backButtonTapped()
+}
+
+class CustomView: UIView {
+
+    internal var navName: String?
+    internal var isHome: Bool = true
+    internal weak var delegate: CustomViewDelegate?
+
     private lazy var customNav: CustomNavigationBar = {
-        let nav = CustomNavigationBar(title: "JRepoScan", type: .menu(action: {
-            print("Vem um menu bem legal aqui")
-        })) {
-            print("notificaçãozinha hein")
-        }
+        let nav = CustomNavigationBar(title: navName ?? "JRepoScan", type: isHome ? .menu(action: {
+            print("algo legal aqui")
+        }) : .back(action: {
+            self.delegate?.backButtonTapped()
+        }), rightButtonAction: {
+            print("ainda vai ter algo legal aqui")
+        })
         nav.translatesAutoresizingMaskIntoConstraints = false
         return nav
     }()
@@ -22,11 +33,14 @@ class HomeView: UIView {
         let table = UITableView()
         table.translatesAutoresizingMaskIntoConstraints = false
         table.register(RepoViewTableViewCell.self, forCellReuseIdentifier: RepoViewTableViewCell.identifier)
+        table.register(PRViewTableViewCell.self, forCellReuseIdentifier: PRViewTableViewCell.identifier)
         return table
     }()
 
-    override init(frame: CGRect) {
-        super.init(frame: frame)
+    init(navName: String, isHome: Bool) {
+        self.navName = navName
+        self.isHome = isHome
+        super.init(frame: .zero)
         setupView()
     }
     
@@ -41,7 +55,7 @@ class HomeView: UIView {
 
 }
 
-extension HomeView: ViewCodable {
+extension CustomView: ViewCodable {
     func buildHierarchy() {
         addSubview(customNav)
         addSubview(tableView)
