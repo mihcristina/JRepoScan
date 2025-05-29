@@ -31,6 +31,7 @@
 		835646452DE6BA6400A338E0 /* PullRequestsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 835646442DE6BA6400A338E0 /* PullRequestsViewController.swift */; };
 		8356464E2DE6BEBF00A338E0 /* PRViewTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8356464D2DE6BEBF00A338E0 /* PRViewTableViewCell.swift */; };
 		835646502DE6C3CA00A338E0 /* PullRequestsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8356464F2DE6C3CA00A338E0 /* PullRequestsViewModel.swift */; };
+		835646592DE7E3F800A338E0 /* UITableViewCell+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 835646582DE7E3F800A338E0 /* UITableViewCell+Extension.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -79,6 +80,7 @@
 		835646442DE6BA6400A338E0 /* PullRequestsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PullRequestsViewController.swift; sourceTree = "<group>"; };
 		8356464D2DE6BEBF00A338E0 /* PRViewTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PRViewTableViewCell.swift; sourceTree = "<group>"; };
 		8356464F2DE6C3CA00A338E0 /* PullRequestsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PullRequestsViewModel.swift; sourceTree = "<group>"; };
+		835646582DE7E3F800A338E0 /* UITableViewCell+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITableViewCell+Extension.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -196,13 +198,11 @@
 		835646242DE6764700A338E0 /* Utils */ = {
 			isa = PBXGroup;
 			children = (
+				835646522DE7DBBA00A338E0 /* Custom */,
+				835646512DE7DB9F00A338E0 /* Extensions */,
 				8356464C2DE6BC7D00A338E0 /* Components */,
 				8356463C2DE6A82C00A338E0 /* Fonts */,
 				835646252DE6787200A338E0 /* ViewCodable.swift */,
-				835646272DE67B4A00A338E0 /* UIColors+Extension.swift */,
-				8356462E2DE68F8C00A338E0 /* CustomNavigation.swift */,
-				8356463A2DE6A61000A338E0 /* UIImage+Extension.swift */,
-				835646412DE6A90F00A338E0 /* Fonts+Extension.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -282,6 +282,25 @@
 				835646222DE6743200A338E0 /* CustomView.swift */,
 			);
 			path = Components;
+			sourceTree = "<group>";
+		};
+		835646512DE7DB9F00A338E0 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				8356463A2DE6A61000A338E0 /* UIImage+Extension.swift */,
+				835646412DE6A90F00A338E0 /* Fonts+Extension.swift */,
+				835646272DE67B4A00A338E0 /* UIColors+Extension.swift */,
+				835646582DE7E3F800A338E0 /* UITableViewCell+Extension.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		835646522DE7DBBA00A338E0 /* Custom */ = {
+			isa = PBXGroup;
+			children = (
+				8356462E2DE68F8C00A338E0 /* CustomNavigation.swift */,
+			);
+			path = Custom;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -423,6 +442,7 @@
 				8356464E2DE6BEBF00A338E0 /* PRViewTableViewCell.swift in Sources */,
 				835645F22DE66D9E00A338E0 /* HomeViewController.swift in Sources */,
 				835646232DE6743200A338E0 /* CustomView.swift in Sources */,
+				835646592DE7E3F800A338E0 /* UITableViewCell+Extension.swift in Sources */,
 				835646372DE6A11500A338E0 /* GitHubAPIService.swift in Sources */,
 				835646422DE6A90F00A338E0 /* Fonts+Extension.swift in Sources */,
 				835646282DE67B4A00A338E0 /* UIColors+Extension.swift in Sources */,

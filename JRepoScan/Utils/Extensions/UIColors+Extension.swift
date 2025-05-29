@@ -10,13 +10,11 @@ import UIKit
 extension UIColor {
     convenience init?(hex: String) {
         var hexString = hex.trimmingCharacters(in: .whitespacesAndNewlines).uppercased()
-        
-        // Remove o "#" se existir
+
         if hexString.hasPrefix("#") {
             hexString.removeFirst()
         }
-        
-        // Verifica se o hex tem 6 ou 8 caracteres (RGB ou ARGB)
+
         guard hexString.count == 6 || hexString.count == 8 else {
             return nil
         }

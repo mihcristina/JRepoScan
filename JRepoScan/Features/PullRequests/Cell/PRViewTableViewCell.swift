@@ -78,6 +78,8 @@ class PRViewTableViewCell: UITableViewCell {
         self.descriptionLabel.text = descriptionLabel
         self.nameLabel.text = profileName
         self.dateLabel.text = datelabel
+
+        setupAccessibility(textDescription: descriptionLabel)
     }
 }
 
@@ -119,6 +121,34 @@ extension PRViewTableViewCell: ViewCodable {
             descriptionLabel.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -18),
             descriptionLabel.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -14),
         ])
+    }
+
+    private func setupAccessibility(textDescription: String) {
+        isAccessibilityElement = false
+
+        titleLabel.isAccessibilityElement = true
+        titleLabel.accessibilityLabel = "Título: \(titleLabel.text ?? "")"
+        titleLabel.accessibilityTraits = .header
+
+        dateLabel.isAccessibilityElement = true
+        dateLabel.accessibilityLabel = "Data: \(dateLabel.text ?? "")"
+
+        nameLabel.isAccessibilityElement = true
+        nameLabel.accessibilityLabel = "Responsável: \(nameLabel.text ?? "")"
+
+        descriptionLabel.isAccessibilityElement = true
+        if self.isPortuguese(text: textDescription) {
+            descriptionLabel.accessibilityLabel = "Descrição: \(descriptionLabel.text ?? "")"
+        } else {
+            descriptionLabel.accessibilityLabel = "Descrição em outro idioma"
+        }
+
+        self.accessibilityElements = [
+            titleLabel,
+            dateLabel,
+            nameLabel,
+            descriptionLabel
+        ]
     }
     
     func configView() {
