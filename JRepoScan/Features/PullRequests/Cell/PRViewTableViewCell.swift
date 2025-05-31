@@ -76,7 +76,7 @@ class PRViewTableViewCell: UITableViewCell {
         self.descriptionLabel.text = descriptionLabel
         self.nameLabel.text = profileName
         let formatter = DateFormatter()
-        formatter.dateFormat = "dd 'de' MMMM 'de' yyyy"
+        formatter.dateFormat = "dd/MM/yyyy"
         formatter.locale = Locale(identifier: "pt_BR")
         self.dateLabel.text = formatter.string(from: date)
 

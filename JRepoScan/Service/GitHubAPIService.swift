@@ -5,50 +5,48 @@
 //  Created by Michelli Cristina de Paulo Lima on 27/05/25.
 //
 
+import RxCocoa
+import RxSwift
 import UIKit
 
 class GitHubAPIService {
-    func fetchRepositories(page: Int, completion: @escaping (Result<[Repository], Error>) -> Void) {
-        let urlString = "https://api.github.com/search/repositories?q=language:Java&sort=stars&page=\(page)"
-        guard let url = URL(string: urlString) else { return }
-
-        URLSession.shared.dataTask(with: url) { data, response, error in
-            if let error = error {
-                completion(.failure(error))
-                return
-            }
-
-            guard let data = data else { return }
-
-            do {
-                let decoded = try JSONDecoder().decode(GitHubResponse.self, from: data)
-                completion(.success(decoded.items))
-            } catch {
-                completion(.failure(error))
-            }
-        }.resume()
+    private let decoder: JSONDecoder
+    
+    init() {
+        decoder = JSONDecoder()
+        decoder.dateDecodingStrategy = .iso8601
     }
-}
+    
+    func fetchRepositoriesRx(page: Int) -> Observable<[Repository]> {
+        let urlString = "https://api.github.com/search/repositories?q=language:Java&sort=stars&page=\(page)"
+        guard let url = URL(string: urlString) else {
+            return Observable.error(NSError(domain: "URL inválida", code: -1))
+        }
 
-extension GitHubAPIService {
-    func fetchPullRequests(owner: String, repo: String, completion: @escaping (Result<[PullRequest], Error>) -> Void) {
-        let urlString = "https://api.github.com/repos/\(owner)/\(repo)/pulls"
-        guard let url = URL(string: urlString) else { return }
+        let request = URLRequest(url: url)
 
-        URLSession.shared.dataTask(with: url) { data, response, error in
-            if let error = error {
-                completion(.failure(error))
-                return
+        return URLSession.shared.rx.data(request: request)
+            .map { [weak self] data in
+                guard let self = self else { throw NSError(domain: "Decoder não disponível", code: -1) }
+                let response = try self.decoder.decode(GitHubResponse.self, from: data)
+                return response.items
             }
-
-            guard let data = data else { return }
-
-            do {
-                let pulls = try JSONDecoder().decode([PullRequest].self, from: data)
-                completion(.success(pulls))
-            } catch {
-                completion(.failure(error))
+    }
+    
+    func fetchPullRequestsRx(owner: String, repo: String, page: Int) -> Observable<[PullRequest]> {
+        let urlString = "https://api.github.com/repos/\(owner)/\(repo)/pulls?page=\(page)"
+        guard let url = URL(string: urlString) else {
+            return Observable.error(NSError(domain: "URL inválida", code: -1))
+        }
+        
+        let request = URLRequest(url: url)
+        
+        return URLSession.shared.rx.data(request: request)
+            .map { [weak self] data in
+                guard let self = self else {
+                    throw NSError(domain: "Decoder não disponível", code: -1)
+                }
+                return try self.decoder.decode([PullRequest].self, from: data)
             }
-        }.resume()
     }
 }

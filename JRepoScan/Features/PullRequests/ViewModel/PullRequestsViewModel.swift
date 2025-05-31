@@ -5,37 +5,58 @@
 //  Created by Michelli Cristina de Paulo Lima on 28/05/25.
 //
 
+import RxCocoa
+import RxSwift
 import UIKit
 
 class PullRequestsViewModel {
     private let repository: Repository
-    private(set) var pullRequests: [PullRequest] = []
+    private let service = GitHubAPIService()
+    private let disposeBag = DisposeBag()
 
-    var onUpdate: (() -> Void)?
+    let pullRequests = BehaviorRelay<[PullRequest]>(value: [])
+    private let _isLoading = BehaviorRelay<Bool>(value: false)
+    private let _error = PublishRelay<String>()
+
+    var isLoading: Driver<Bool> {
+        _isLoading.asDriver()
+    }
+
+    var error: Driver<String> {
+        _error.asDriver(onErrorJustReturn: "Erro desconhecido")
+    }
+
+    private var currentPage = 1
+    private var isFetching = false
+    private var hasMore = true
 
     init(repository: Repository) {
         self.repository = repository
     }
 
     func fetchPullRequests() {
-        let urlString = "https://api.github.com/repos/\(repository.owner.login)/\(repository.name)/pulls"
-        guard let url = URL(string: urlString) else { return }
+        guard !isFetching, hasMore else { return }
+        isFetching = true
+        _isLoading.accept(true)
 
-        URLSession.shared.dataTask(with: url) { [weak self] data, _, error in
-            guard let self = self else { return }
-            if let data = data {
-                do {
-                    let decoder = JSONDecoder()
-                    decoder.dateDecodingStrategy = .iso8601
-
-                    self.pullRequests = try decoder.decode([PullRequest].self, from: data)
-                    DispatchQueue.main.async {
-                        self.onUpdate?()
-                    }
-                } catch {
-                    print("Erro decodificando PRs:", error)
+        service.fetchPullRequestsRx(owner: repository.owner.login, repo: repository.name, page: currentPage)
+            .observe(on: MainScheduler.instance)
+            .subscribe(
+                onNext: { [weak self] prs in
+                    guard let self = self else { return }
+                    let updated = self.pullRequests.value + prs
+                    self.pullRequests.accept(updated)
+                    self.currentPage += 1
+                    self.hasMore = !prs.isEmpty
+                    self._isLoading.accept(false)
+                    self.isFetching = false
+                },
+                onError: { [weak self] error in
+                    self?._error.accept("Erro ao carregar PRs: \(error.localizedDescription)")
+                    self?._isLoading.accept(false)
+                    self?.isFetching = false
                 }
-            }
-        }.resume()
+            )
+            .disposed(by: disposeBag)
     }
 }

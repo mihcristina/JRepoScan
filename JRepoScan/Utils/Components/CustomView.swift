@@ -12,7 +12,6 @@ protocol CustomViewDelegate: AnyObject {
 }
 
 class CustomView: UIView {
-
     internal var navName: String?
     internal var isHome: Bool = true
     internal weak var delegate: CustomViewDelegate?
@@ -37,6 +36,13 @@ class CustomView: UIView {
         return table
     }()
 
+    internal lazy var activityIndicator: UIActivityIndicatorView = {
+        let indicator = UIActivityIndicatorView(style: .large)
+        indicator.translatesAutoresizingMaskIntoConstraints = false
+        indicator.hidesWhenStopped = true
+        return indicator
+    }()
+
     init(navName: String, isHome: Bool) {
         self.navName = navName
         self.isHome = isHome
@@ -48,9 +54,8 @@ class CustomView: UIView {
         fatalError("init(coder:) has not been implemented")
     }
 
-    func tableViewDelegation(delegate: UITableViewDelegate, datasource: UITableViewDataSource) {
+    func tableViewDelegation(delegate: UITableViewDelegate) {
         tableView.delegate = delegate
-        tableView.dataSource = datasource
     }
 
 }
@@ -59,6 +64,7 @@ extension CustomView: ViewCodable {
     func buildHierarchy() {
         addSubview(customNav)
         addSubview(tableView)
+        addSubview(activityIndicator)
     }
 
     func setupConstraints() {
@@ -71,7 +77,10 @@ extension CustomView: ViewCodable {
             tableView.topAnchor.constraint(equalTo: customNav.bottomAnchor),
             tableView.bottomAnchor.constraint(equalTo: bottomAnchor),
             tableView.leadingAnchor.constraint(equalTo: leadingAnchor),
-            tableView.trailingAnchor.constraint(equalTo: trailingAnchor)
+            tableView.trailingAnchor.constraint(equalTo: trailingAnchor),
+
+            activityIndicator.centerXAnchor.constraint(equalTo: centerXAnchor),
+            activityIndicator.centerYAnchor.constraint(equalTo: centerYAnchor)
         ])
     }
 

@@ -5,48 +5,67 @@
 //  Created by Michelli Cristina de Paulo Lima on 27/05/25.
 //
 
+import RxCocoa
+import RxSwift
 import UIKit
 
 class HomeViewModel {
-    private var service = GitHubAPIService()
-    private(set) var repositories: [Repository] = []
-    private var currentPage = 1
-    private var isLoading = false
+    private var hasMore = true
+    private let service = GitHubAPIService()
+    private let disposeBag = DisposeBag()
 
-    var onUpdate: (() -> Void)?
+    let repositories = BehaviorRelay<[Repository]>(value: [])
+    private let _isLoading = BehaviorRelay<Bool>(value: false)
+    private let _error = PublishRelay<String>()
+
+    var isLoading: Driver<Bool> {
+        _isLoading.asDriver()
+    }
+
+    var error: Driver<String> {
+        _error.asDriver(onErrorJustReturn: "Erro desconhecido")
+    }
+
+    private var currentPage = 1
+    private var isFetching = false
 
     func fetchRepositoriesIfNeeded(currentRow: Int) {
-        if currentRow >= repositories.count - 5 && !isLoading {
+        if currentRow >= repositories.value.count - 5 && !isFetching {
             loadRepositories()
         }
     }
 
     func loadRepositories() {
-        guard !isLoading else { return }
-        isLoading = true
+        guard !isFetching, hasMore else { return }
+        isFetching = true
+        _isLoading.accept(true)
 
-        service.fetchRepositories(page: currentPage) { [weak self] result in
-            guard let self = self else { return }
-
-            DispatchQueue.main.async {
-                switch result {
-                case .success(let newRepos):
-                    self.repositories += newRepos
+        service.fetchRepositoriesRx(page: currentPage)
+            .observe(on: MainScheduler.instance)
+            .subscribe(
+                onNext: { [weak self] newRepos in
+                    guard let self = self else { return }
+                    let updated = self.repositories.value + newRepos
+                    self.repositories.accept(updated)
                     self.currentPage += 1
-                    self.onUpdate?()
-                case .failure(let error):
-                    print("Failed to load repos: \(error)")
+                    self.hasMore = !newRepos.isEmpty
+                    self._isLoading.accept(false)
+                    self.isFetching = false
+                },
+                onError: { [weak self] error in
+                    self?._error.accept("Erro ao carregar repositórios: \(error.localizedDescription)")
+                    self?._isLoading.accept(false)
+                    self?.isFetching = false
                 }
-                self.isLoading = false
-            }
-        }
+            )
+            .disposed(by: disposeBag)
     }
 
     func repository(at index: Int) -> Repository {
-        return repositories[index]
+        repositories.value[index]
     }
 
     var count: Int {
-        return repositories.count
+        repositories.value.count
     }
 }
