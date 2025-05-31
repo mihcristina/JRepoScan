@@ -22,16 +22,20 @@ Antes de começar, verifique se você atendeu aos seguintes requisitos:
 
 - Você tem uma máquina `Mac`.
 - Você instalou a versão minima de 15.4 do `xcode`.
-- Tem o `cocoapods` instalado.
+- Conexão com a internet para instalar pacotes via `Swift Package Manager`.
 
 ## ☕ Usando JRepoScan sem Acessibilidade
 
 Para usar JRepoScan, siga estas etapas:
 
 ```
-Instalar o cocoapods, instalar o xcode, e dentro da pasta do projeto dar o pod install.
+Clone o repositório
 
-Rodar o simulador pelo xcode
+Abra o .xcodeproj ou .xcworkspace no Xcode
+
+O SPM instalará automaticamente as dependências na primeira build
+
+Execute no simulador (Cmd + R)
 ```
 
 ## ☕ Usando JRepoScan com Acessibilidade
@@ -39,8 +43,12 @@ Rodar o simulador pelo xcode
 Para usar JRepoScan, siga estas etapas:
 
 ```
-Instalar o cocoapodse dentro da pasta do projeto dar o pod install.
-Abrir o xcode e em seu menu superior acionar o inspetor de acessibilidade, no xcode / Open developer tools / accessibility inspector
+Execute o projeto no simulador normalmente
+
+No Xcode, abra o menu:
+Xcode > Open Developer Tool > Accessibility Inspector
+
+Use o inspetor para verificar os elementos da interface
 
 ```
 <img src="example.png" alt="Imagem mostrando onde fica o inspetor de acessibilidade">
