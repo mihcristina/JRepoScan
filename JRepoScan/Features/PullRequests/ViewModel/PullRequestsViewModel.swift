@@ -11,7 +11,7 @@ import UIKit
 
 class PullRequestsViewModel {
     private let repository: Repository
-    private let service = GitHubAPIService()
+    private let service: GitHubAPIServiceProtocol
     private let disposeBag = DisposeBag()
 
     let pullRequests = BehaviorRelay<[PullRequest]>(value: [])
@@ -30,8 +30,9 @@ class PullRequestsViewModel {
     private var isFetching = false
     private var hasMore = true
 
-    init(repository: Repository) {
+    init(repository: Repository, service: GitHubAPIService) {
         self.repository = repository
+        self.service = service
     }
 
     func fetchPullRequests() {

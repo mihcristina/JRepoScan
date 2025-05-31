@@ -11,12 +11,21 @@ import UIKit
 
 class HomeViewController: UIViewController {
     var homeView: CustomView?
-    let viewModel = HomeViewModel()
+    let viewModel: HomeViewModel
     private let disposeBag = DisposeBag()
 
     override func loadView() {
         homeView = CustomView(navName: "JRepoScan", isHome: true)
         view = homeView
+    }
+
+    init(service:  GitHubAPIServiceProtocol = GitHubAPIService()) {
+        self.viewModel = HomeViewModel(service: service)
+        super.init(nibName: nil, bundle: nil)
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
     }
 
     override func viewDidLoad() {

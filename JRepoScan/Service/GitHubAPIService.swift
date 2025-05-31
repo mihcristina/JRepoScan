@@ -9,7 +9,7 @@ import RxCocoa
 import RxSwift
 import UIKit
 
-class GitHubAPIService {
+class GitHubAPIService: GitHubAPIServiceProtocol {
     private let decoder: JSONDecoder
     
     init() {

@@ -11,7 +11,7 @@ import UIKit
 
 class HomeViewModel {
     private var hasMore = true
-    private let service = GitHubAPIService()
+    private let service: GitHubAPIServiceProtocol
     private let disposeBag = DisposeBag()
 
     let repositories = BehaviorRelay<[Repository]>(value: [])
@@ -28,6 +28,10 @@ class HomeViewModel {
 
     private var currentPage = 1
     private var isFetching = false
+
+    init(service: GitHubAPIServiceProtocol) {
+        self.service = service
+    }
 
     func fetchRepositoriesIfNeeded(currentRow: Int) {
         if currentRow >= repositories.value.count - 5 && !isFetching {
