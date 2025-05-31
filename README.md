@@ -16,6 +16,13 @@ Esse aplicativo conta com as seguintes Features:
 - [x] Injeção de dependências
 - [ ] Testes instrumentados
 
+### Melhorias futuras
+
+Foram mapeadas as seguintes melhorias:
+
+- [ ] Acessibilidade em outro idioma fora do sistema operacional.
+
+
 ## 💻 Pré-requisitos
 
 Antes de começar, verifique se você atendeu aos seguintes requisitos:
