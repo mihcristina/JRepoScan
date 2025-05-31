@@ -34,6 +34,7 @@ class RepoViewTableViewCell: UITableViewCell {
         label.translatesAutoresizingMaskIntoConstraints = false
         label.font = CustomFont.robotoMedium.withSize(14)
         label.textColor = AppColor.primary.color
+        label.numberOfLines = 0
         return label
     }()
 

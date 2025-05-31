@@ -16,6 +16,7 @@ class PRViewTableViewCell: UITableViewCell {
         label.translatesAutoresizingMaskIntoConstraints = false
         label.font = CustomFont.robotoMedium.withSize(16)
         label.textColor = AppColor.primary.color
+        label.numberOfLines = 0
         return label
     }()
 
