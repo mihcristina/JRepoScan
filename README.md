@@ -55,21 +55,13 @@ Use o inspetor para verificar os elementos da interface
 
 ## 🤝 Quem sou eu
 
-<table>
-  <tr>
-    <td align="center">
-      <a href="#" title="defina o título do link">
-        <img src="https://avatars.githubusercontent.com/u/46427993?v=4" width="100px;" alt="Foto da Michelli no GitHub, cabelo castanho escuro, olhos castanhos escuros, na foto aparece só o rosto."/><br>
-        <sub>
-          <b>Michelli Cristina</b>
-        </sub>
-        </a>
-        <div>
-          <b>Desenvolvedora iOS. Pós graduanda em Engenharia de Software e Desenvolvimento de aplicativos móveis.</b>
-        </div>
-    </td>
-  </tr>
-</table>
+<div align="center">
+  <img src="https://avatars.githubusercontent.com/u/46427993?v=4" width="120" style="border-radius: 50%;" alt="Foto da Michelli no GitHub" />
+  <h3>Michelli Cristina</h3>
+  <p>👩‍💻 Desenvolvedora iOS<br>🎓 Pós-graduanda em Engenharia de Software e Desenvolvimento Mobile</p>
+  <a href="https://github.com/mihcristina">🔗 GitHub</a> • 
+  <a href="https://linkedin.com/in/mihcristina">📫 LinkedIn</a>
+</div>
 
 ## 📝 Licença
 
