@@ -13,8 +13,8 @@ Esse aplicativo conta com as seguintes Features:
 - [x] Acessibilidade
 - [x] Programação reativa
 - [x] Testes unitários
+- [x] Injeção de dependências
 - [ ] Testes instrumentados
-- [ ] Injeção de dependências
 
 ## 💻 Pré-requisitos
 
