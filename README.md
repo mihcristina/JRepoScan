@@ -11,9 +11,9 @@ Esse aplicativo conta com as seguintes Features:
 - [x] Layout em ViewCode (MVVM)
 - [x] Paginação na tela de lista
 - [x] Acessibilidade
+- [x] Programação reativa
 - [x] Testes unitários
 - [ ] Testes instrumentados
-- [ ] Programação reativa
 - [ ] Injeção de dependências
 
 ## 💻 Pré-requisitos
@@ -22,12 +22,15 @@ Antes de começar, verifique se você atendeu aos seguintes requisitos:
 
 - Você tem uma máquina `Mac`.
 - Você instalou a versão minima de 15.4 do `xcode`.
+- Tem o `cocoapods` instalado.
 
 ## ☕ Usando JRepoScan sem Acessibilidade
 
 Para usar JRepoScan, siga estas etapas:
 
 ```
+Instalar o cocoapods, instalar o xcode, e dentro da pasta do projeto dar o pod install.
+
 Rodar o simulador pelo xcode
 ```
 
@@ -36,6 +39,7 @@ Rodar o simulador pelo xcode
 Para usar JRepoScan, siga estas etapas:
 
 ```
+Instalar o cocoapodse dentro da pasta do projeto dar o pod install.
 Abrir o xcode e em seu menu superior acionar o inspetor de acessibilidade, no xcode / Open developer tools / accessibility inspector
 
 ```
