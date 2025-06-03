@@ -39,7 +39,17 @@ class PullRequestsViewController: UIViewController {
     }
 
     func bindViewModel() {
+        viewModel.error
+            .drive(onNext: { [weak self] message in
+                guard let self = self else { return }
+                let alert = UIAlertController(title: "Erro", message: message, preferredStyle: .alert)
+                alert.addAction(UIAlertAction(title: "Ok", style: .default))
+                self.present(alert, animated: true)
+            })
+            .disposed(by: disposeBag)
+
         guard let prView = prView else { return }
+
         viewModel.pullRequests
             .bind(to: prView.tableView.rx.items(cellIdentifier: PRViewTableViewCell.identifier, cellType: PRViewTableViewCell.self)) { (row, pr, cell) in
                 cell.configCell(
@@ -54,15 +64,6 @@ class PullRequestsViewController: UIViewController {
             .subscribe(onNext: { [weak self] repo in
                 let vc = PullRequestsViewController(repository: repo)
                 self?.navigationController?.pushViewController(vc, animated: true)
-            })
-            .disposed(by: disposeBag)
-
-        viewModel.error
-            .drive(onNext: { [weak self] message in
-                guard let self = self else { return }
-                let alert = UIAlertController(title: "Erro", message: message, preferredStyle: .alert)
-                alert.addAction(UIAlertAction(title: "Ok", style: .default))
-                self.present(alert, animated: true)
             })
             .disposed(by: disposeBag)
     }
