@@ -21,6 +21,7 @@ Esse aplicativo conta com as seguintes Features:
 Foram mapeadas as seguintes melhorias:
 
 - [ ] Acessibilidade em outro idioma fora do sistema operacional.
+- [ ] Injeção de dependência nas views e viewmodels
 
 
 ## 💻 Pré-requisitos
