@@ -30,7 +30,7 @@ class PullRequestsViewModel {
     private var isFetching = false
     private var hasMore = true
 
-    init(repository: Repository, service: GitHubAPIServiceProtocol) {
+    init(repository: Repository, service: GitHubAPIServiceProtocol = GitHubAPIService()) {
         self.repository = repository
         self.service = service
     }

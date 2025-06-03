@@ -20,9 +20,9 @@ class PullRequestsViewController: UIViewController {
         view = prView
     }
 
-    init(repository: Repository, service: GitHubAPIService = GitHubAPIService()) {
+    init(repository: Repository) {
         navName = repository.name
-        viewModel = PullRequestsViewModel(repository: repository, service: service)
+        viewModel = PullRequestsViewModel(repository: repository)
         super.init(nibName: nil, bundle: nil)
     }
 

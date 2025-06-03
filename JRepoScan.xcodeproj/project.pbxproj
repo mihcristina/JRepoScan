@@ -147,8 +147,9 @@
 		835645EC2DE66D9E00A338E0 /* JRepoScan */ = {
 			isa = PBXGroup;
 			children = (
+				8356464C2DE6BC7D00A338E0 /* Components */,
 				835646302DE6A00D00A338E0 /* Service */,
-				835646242DE6764700A338E0 /* Utils */,
+				835646242DE6764700A338E0 /* Resources */,
 				8356461D2DE6739C00A338E0 /* Features */,
 				835645ED2DE66D9E00A338E0 /* AppDelegate.swift */,
 				835645EF2DE66D9E00A338E0 /* SceneDelegate.swift */,
@@ -213,15 +214,14 @@
 			path = ViewModel;
 			sourceTree = "<group>";
 		};
-		835646242DE6764700A338E0 /* Utils */ = {
+		835646242DE6764700A338E0 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
 				835646512DE7DB9F00A338E0 /* Extensions */,
-				8356464C2DE6BC7D00A338E0 /* Components */,
 				8356463C2DE6A82C00A338E0 /* Fonts */,
 				835646252DE6787200A338E0 /* ViewCodable.swift */,
 			);
-			path = Utils;
+			path = Resources;
 			sourceTree = "<group>";
 		};
 		835646292DE67F8000A338E0 /* Cell */ = {

@@ -29,7 +29,7 @@ class HomeViewModel {
     private var currentPage = 1
     private var isFetching = false
 
-    init(service: GitHubAPIServiceProtocol) {
+    init(service: GitHubAPIServiceProtocol = GitHubAPIService()) {
         self.service = service
     }
 
@@ -65,8 +65,11 @@ class HomeViewModel {
             .disposed(by: disposeBag)
     }
 
-    func repository(at index: Int) -> Repository {
-        repositories.value[index]
+    func repository(at index: Int) -> Repository? {
+        guard index < repositories.value.count else {
+            return nil
+        }
+        return repositories.value[index]
     }
 
     var count: Int {
